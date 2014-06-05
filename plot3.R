@@ -19,13 +19,14 @@ consumpt07 = subset(consumpt,
                     consumpt$DateTime >= lowerBound
                     & consumpt$DateTime <= upperBound);
 
-## TODO set locale to english to get the righ x-axis desc
 ## print the graph
 png(filename = "plot3.png",
     width=480,
     height=480,
     units="px");
 
+## set locale to english (otherwise will take system locale for x-axis desc)
+Sys.setlocale("LC_TIME", "English");
 plot(consumpt07$DateTime,
      consumpt07$Sub_metering_1,
      type = "l",
